@@ -31,8 +31,7 @@ const render = async () => {
     countrySelect.innerHTML += `<option value=${country.country_id}>${country.name}</option>`;
   });
   countrySelect.addEventListener('change', (evt) => onCountryChange(evt, form));
-  stateSelect = document.createElement('select');
-  stateSelect.setAttribute('id', 'state-select');
+  stateSelect = document.querySelector('#state-select');
   stateSelect.addEventListener('change', onStateChange);
   form.appendChild(stateSelect);
   stateSelect.innerHTML =
@@ -47,6 +46,7 @@ function onCountryChange(evt) {
     (state) => state.country_id === evt.target.value
   );
   let stateSelect = document.querySelector('#state-select');
+  selected.state = undefined;
   stateSelect.innerHTML = stateOptions.reduce((options, state) => {
     return options + `<option value=${state.state_id}>${state.name}</option>`;
   }, '<option value="">--Please Select Your State--</option>');
