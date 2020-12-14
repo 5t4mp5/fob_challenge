@@ -19,7 +19,7 @@ const render = async () => {
         (fetchedData.states = data.states);
     })
     .catch((e) => console.error(e));
-  const { products, countries, states } = fetchedData;
+  const { products, countries } = fetchedData;
   const form = document.querySelector('form');
   const productSelect = document.querySelector('#product-select');
   productSelect.addEventListener('change', onProductChange);
